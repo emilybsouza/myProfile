@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+const isProd = process.env.NODE_ENV === "production";
+const repositoryName = "myProfile";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+  basePath: isProd ? `/${repositoryName}` : "",
+  assetPrefix: isProd ? `/${repositoryName}/` : "",
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
 };
-
-export default nextConfig;
